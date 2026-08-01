@@ -550,6 +550,49 @@
   #toTop.show{opacity:1; pointer-events:auto; transform:none;}
   #toTop:hover{transform:translateY(-4px);}
 
+  /* ---------- IMAGERY ---------- */
+  .eyebrow-flag{width:28px;height:20px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.18);vertical-align:-5px;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .gallery-item{position:relative; border-radius:10px; overflow:hidden; aspect-ratio:4/3; margin:0;
+    box-shadow:0 24px 48px -26px rgba(0,0,0,.5);}
+  .gallery-item img{width:100%;height:100%;object-fit:cover; transition:transform .7s var(--ease);}
+  .gallery-item:hover img{transform:scale(1.07);}
+  .gallery-cap{position:absolute; left:0; right:0; bottom:0; padding:30px 16px 12px;
+    background:linear-gradient(transparent,rgba(0,0,0,.78)); color:var(--stone); font-size:12.5px; line-height:1.4;}
+  .gallery-cap b{display:block; font-family:'Fraunces',serif; font-size:17px; margin-bottom:2px;}
+  .nation-strip{
+    display:grid; grid-template-columns:auto 1fr; gap:24px; align-items:center;
+    background:linear-gradient(135deg,var(--bg-dark),var(--bg-black)); color:var(--stone);
+    border-radius:12px; padding:30px 32px; margin-top:28px; border:1px solid rgba(212,175,106,.2);
+  }
+  .nation-strip .flags{display:flex; gap:14px;}
+  .nation-strip .flags img{width:76px; height:54px; border-radius:4px; box-shadow:0 8px 20px -8px rgba(0,0,0,.6);}
+  .nation-strip p{margin:0; color:var(--stone-dim); font-size:14px; max-width:62ch;}
+
+  /* ---------- CLUBS ---------- */
+  .club-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px;}
+  .club-card{background:var(--cream); border:1px solid rgba(0,0,0,.07); border-radius:8px; padding:20px; transition:transform .3s var(--ease), box-shadow .3s var(--ease);}
+  .club-card:hover{transform:translateY(-4px); box-shadow:0 18px 36px -22px rgba(0,0,0,.4);}
+  .club-card h3{font-size:15px; margin-bottom:5px;}
+  .club-card .c-time{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--jade-deep); font-weight:600; text-transform:uppercase; letter-spacing:.06em;}
+  .club-card p{font-size:12.5px; color:#5a564a; margin:7px 0 0;}
+
+  /* ---------- ACCORDION ---------- */
+  .acc-wrap{margin-top:26px;}
+  .acc{background:#fff; border:1px solid rgba(0,0,0,.09); border-radius:8px; margin-bottom:10px; overflow:hidden; transition:box-shadow .3s;}
+  .acc:hover{box-shadow:0 14px 30px -22px rgba(0,0,0,.4);}
+  .acc summary{
+    cursor:pointer; padding:17px 20px; font-weight:700; font-size:14.5px; list-style:none;
+    display:flex; justify-content:space-between; align-items:center; gap:12px; user-select:none;
+  }
+  .acc summary::-webkit-details-marker{display:none;}
+  .acc summary::after{content:"+"; font-family:'IBM Plex Mono',monospace; font-size:18px; color:var(--jade-deep); flex-shrink:0; transition:transform .3s;}
+  .acc[open] summary::after{transform:rotate(135deg);}
+  .acc .acc-body{padding:0 20px 20px; font-size:13.5px; color:#5a564a; line-height:1.65;}
+  .acc .acc-body b{color:var(--bg-darker);}
+  .acc .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .acc .chip-row span{font-family:'IBM Plex Mono',monospace; font-size:10.5px; background:#E5F3EB; color:var(--jade-deep); padding:4px 10px; border-radius:20px;}
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:1020px){
     .tourn-grid{grid-template-columns:1fr;}
@@ -568,6 +611,9 @@
   @media (max-width:620px){
     .news-grid{grid-template-columns:1fr;}
     .district-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:1fr;}
+    .club-strip{grid-template-columns:1fr;}
+    .nation-strip{grid-template-columns:1fr;}
     .join{padding:34px 26px;}
     .footer-grid{grid-template-columns:1fr;}
     section{padding:64px 0;}
@@ -638,7 +684,7 @@
 <section class="hero" id="top">
   <div class="hero-grid">
     <div>
-      <div class="eyebrow">Belmopan, Cayo District · FIDE member federation</div>
+      <div class="eyebrow"><img class="eyebrow-flag" src="images/flag.svg" alt="Flag of Belize" width="28" height="20">Belmopan, Cayo District · FIDE member federation</div>
       <h1>Sixteen squares, six districts, <span class="grad">one federation.</span></h1>
       <p class="lede">From village halls in Toledo to school clubs on the Belize–Mexico border, the Belize Chess Federation tracks every tournament, rating, and result across the country — all in one place.</p>
       <div class="hero-ctas">
@@ -823,13 +869,15 @@
       <div class="table-wrap">
         <table id="upcoming-table" class="table-pane">
           <thead>
-            <tr><th>Event</th><th>Format</th><th>Where</th><th>Status</th></tr>
+            <tr><th>Event</th><th>Format</th><th>Time control</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">National Championship 2026–27</a></td><td class="mono">Cycle · district qualifiers</td><td>Nationwide, Belmopan final</td><td><span class="status-open">Open</span></td></tr>
-            <tr><td><a href="https://www.belizechess.com/belizecircuit2026" target="_blank" rel="noopener">Belize Circuit 2026</a></td><td class="mono">Series · rated events</td><td>All six districts</td><td><span class="status-open">Open</span></td></tr>
-            <tr><td><a href="https://www.belizechess.com/upcoming-tournaments" target="_blank" rel="noopener">Next federation events</a></td><td class="mono">As published</td><td>Check the official calendar</td><td><span class="status-open">Live list</span></td></tr>
-            <tr><td><a href="https://www.belizechess.com/active-clubs" target="_blank" rel="noopener">District club programme</a></td><td class="mono">Club nights &amp; leagues</td><td>50+ clubs nationwide</td><td><span class="status-open">Active</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">2026–27 Championship Finals</a></td><td class="mono">Classical round robin</td><td class="mono">90 + 30 · notation</td><td><span class="status-open">10 players</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">Belize Chess Classic 2026</a></td><td class="mono">Classical · Swiss 5 rd</td><td class="mono">45 + 30 · FIDE rated</td><td><span class="status-open">Qualifier</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">Belizean Crown Cup</a></td><td class="mono">Knockout</td><td class="mono">30 + 2</td><td><span class="status-open">Qualifier</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">Belize Grand Swiss 2027</a></td><td class="mono">Rapid · Swiss 5 rd</td><td class="mono">30 + 2 · NM title</td><td><span class="status-open">Qualifier</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">Junior Championship</a></td><td class="mono">Swiss 5 rd · Oct 2026</td><td class="mono">30 + 2 · Under 16</td><td><span class="status-open">Open</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/belizecircuit2026" target="_blank" rel="noopener">Championship Circuit 2026–27</a></td><td class="mono">Series · rated events</td><td class="mono">Best 7 results count</td><td><span class="status-open">Active</span></td></tr>
           </tbody>
         </table>
 
@@ -845,6 +893,28 @@
             <tr><td>Belmopan Library Swiss</td><td class="mono">See official results</td><td>Belize</td><td class="mono">2026</td></tr>
           </tbody>
         </table>
+
+        <div class="acc-wrap">
+          <div class="acc"><details>
+            <summary>How to qualify for the 2026–27 National Championship</summary>
+            <div class="acc-body">
+              Defending champion <b>NM Alfred A. Awe</b> is joined by seven more players in a classical round robin for the title. The ten spots are filled through: <b>Belize Grand Swiss 2027</b> winner · <b>Belizean Crown Cup</b> winner · <b>Belize Chess Classic 2026</b> and <b>2027</b> winners · top finishers on the <b>Championship Circuit</b> · and the <b>highest-rated active player</b> (min. 30 rapid/classical games between Feb 2026 and Sep 2027).
+              <div class="chip-row"><span>Grand Swiss 2027</span><span>Crown Cup</span><span>Chess Classic 2026/27</span><span>Circuit top 3</span><span>Highest rated</span></div>
+            </div>
+          </details></div>
+          <div class="acc"><details>
+            <summary>Championship format &amp; time controls</summary>
+            <div class="acc-body">
+              Finals are now a <b>single classical round robin</b> (no title match) at <b>90 + 30 with notation</b>. The <b>Junior Championship</b> runs annually from 2026 — a five-round Swiss at <b>30 + 2</b> for players under 16 on 1 January; ties for the podium are decided by blitz playoff.
+            </div>
+          </details></div>
+          <div class="acc"><details>
+            <summary>How the Championship Circuit points work</summary>
+            <div class="acc-body">
+              Points are <b>P = B × k × w</b>. Basic points B: 1st = 11 down to 6th = 4. Strength factor <b>k = (TAR − 1350) / 100</b>, where TAR is the average rating of the top six players. Weighting w: classical 2.0, Grand Swiss / Crown Cup 1.6, rapid 1.2, national blitz 1.0, blitz 0.7. A player's season score is their <b>best seven results</b>.
+            </div>
+          </details></div>
+        </div>
       </div>
 
       <aside class="countdown-card">
@@ -918,41 +988,51 @@
     <div class="section-head reveal">
       <div>
         <div class="eyebrow">Around the country</div>
-        <h2>District associations</h2>
-        <p>Every district runs its own association, club calendar, and qualifiers feeding into national events.</p>
+        <h2>District associations &amp; clubs</h2>
+        <p>Every district runs its own association and club calendar — here are the real meeting times straight from the BCF active-clubs list.</p>
       </div>
+      <a href="https://www.belizechess.com/active-clubs" class="section-num" target="_blank" rel="noopener">All active clubs ↗</a>
     </div>
     <div class="district-grid">
-      <a href="#news" class="district-card reveal d1">
+      <a href="#clubs" class="district-card reveal d1">
         <svg width="36" height="36" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" fill="none" stroke="#E7CE9B" stroke-width="1.4"/><path d="M12 8v8M8 12h8" stroke="#E7CE9B" stroke-width="1.4"/></svg>
         <h3>Belize</h3><span>Belize City · capital club</span>
-        <span class="tpop">Home of the Belize City District Cup and the largest player base in the country.</span>
+        <span class="tpop">Belize City Chess Club — Sundays 2:30pm at Admiral's Restaurant &amp; Bar (John Newport). Caye Caulker Chess Club — Wednesdays 3–6pm at Sunrise Scuba.</span>
       </a>
-      <a href="#news" class="district-card reveal d2">
+      <a href="#clubs" class="district-card reveal d2">
         <svg width="36" height="36" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#E7CE9B" stroke-width="1.4"/><circle cx="12" cy="12" r="3" fill="#E7CE9B"/></svg>
-        <h3>Cayo</h3><span>San Ignacio · Benque Viejo</span>
-        <span class="tpop">Hosts the Cayo Open — the biggest district event on the calendar — and the BNYCF headquarters at Caves Branch.</span>
+        <h3>Cayo</h3><span>Belmopan · San Ignacio</span>
+        <span class="tpop">Belmopan Library Chess Club — Tuesdays &amp; Thursdays 2–4pm at the Public Library (Carlisle Barrow 629-3759). School clubs across the district, plus the BNYCF at Caves Branch.</span>
       </a>
-      <a href="#news" class="district-card reveal d3">
+      <a href="#clubs" class="district-card reveal d3">
         <svg width="36" height="36" viewBox="0 0 24 24"><path d="M12 4l8 8-8 8-8-8z" fill="none" stroke="#E7CE9B" stroke-width="1.4"/></svg>
         <h3>Orange Walk</h3><span>Orange Walk Town</span>
-        <span class="tpop">First district to run a FIDE-rated rapid event, bringing international play to the north.</span>
+        <span class="tpop">Home of NM Michael Campos and a lively school-club circuit in the north — the 2023 national champion's district.</span>
       </a>
-      <a href="#news" class="district-card reveal d4">
+      <a href="#clubs" class="district-card reveal d4">
         <svg width="36" height="36" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="#E7CE9B" stroke-width="1.4"/></svg>
         <h3>Corozal</h3><span>Corozal Town</span>
-        <span class="tpop">Border-town chess on the Belize–Mexico frontier, home of the Corozal Rapid Classic.</span>
+        <span class="tpop">Corozal Junior College (Jose Acosta) and Nazarene High School (NM Cristobal Campos) run the district's school programme.</span>
       </a>
-      <a href="#news" class="district-card reveal d5">
+      <a href="#clubs" class="district-card reveal d5">
         <svg width="36" height="36" viewBox="0 0 24 24"><path d="M4 18l4-10 4 6 4-8 4 12z" fill="none" stroke="#E7CE9B" stroke-width="1.4"/></svg>
-        <h3>Stann Creek</h3><span>Dangriga</span>
-        <span class="tpop">School clubs in Dangriga and the south — home of the Stann Creek Invitational.</span>
+        <h3>Stann Creek</h3><span>Dangriga · Alta Vista</span>
+        <span class="tpop">Alta Vista Village Chess Club — Thursdays 4:30–6:30pm, Alta Vista Community Center. Dangriga Chess Club — Mondays 6–7:30pm at Christ AG Church. Alfred Awe 613-1902.</span>
       </a>
-      <a href="#news" class="district-card reveal d6">
+      <a href="#clubs" class="district-card reveal d6">
         <svg width="36" height="36" viewBox="0 0 24 24"><polygon points="12,4 20,20 4,20" fill="none" stroke="#E7CE9B" stroke-width="1.4"/></svg>
         <h3>Toledo</h3><span>Punta Gorda</span>
-        <span class="tpop">Primary-school chess booming in the south, with Punta Gorda Town Hall as a new regular venue.</span>
+        <span class="tpop">Primary-school chess keeps growing in the south — Dinsdale Caye flies the district's colours on the national list.</span>
       </a>
+    </div>
+
+    <div class="club-strip" id="clubs">
+      <div class="club-card reveal d1"><h3>Belmopan Library Chess Club</h3><span class="c-time">Tue &amp; Thu · 2–4pm</span><p>Belmopan Public Library · Carlisle Barrow 629-3759</p></div>
+      <div class="club-card reveal d2"><h3>Belize City Chess Club</h3><span class="c-time">Sun · 2:30pm</span><p>Admiral's Restaurant &amp; Bar · John Newport</p></div>
+      <div class="club-card reveal d3"><h3>Alta Vista Village Chess Club</h3><span class="c-time">Thu · 4:30–6:30pm</span><p>Alta Vista Community Center · Alfred Awe 613-1902</p></div>
+      <div class="club-card reveal d4"><h3>Dangriga Chess Club</h3><span class="c-time">Mon · 6–7:30pm</span><p>Christ AG Church, Dangriga · Alfred Awe 613-1902</p></div>
+      <div class="club-card reveal d5"><h3>Caye Caulker Chess Club</h3><span class="c-time">Wed · 3–6pm</span><p>Sunrise Scuba · Allie Ifield</p></div>
+      <div class="club-card reveal d6"><h3>School clubs network</h3><span class="c-time">Across six districts</span><p>Sacred Heart, SJJC, St. Catherine's, Corozal Junior College, Nazarene &amp; more</p></div>
     </div>
   </div>
 </section>
@@ -1000,6 +1080,43 @@
       <a class="sponsor reveal d4" href="https://www.sunrisescubabz.com" target="_blank" rel="noopener"><h3>Sunrise Scuba</h3><span>Community partner</span></a>
       <a class="sponsor reveal d5" href="https://www.facebook.com/ccadiversity" target="_blank" rel="noopener"><h3>CCA Diversity Commission</h3><span>Inclusion programme</span></a>
       <a class="sponsor reveal d6" href="https://www.facebook.com/discovercayo" target="_blank" rel="noopener"><h3>Cayo Welcome Center</h3><span>Tourism &amp; chess outreach</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band-alt" id="belize">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">The chess capital of Central America</div>
+        <h2>Belize at a glance</h2>
+        <p>From Maya ruins in Cayo to the cayes and the Caribbean coast — a small country with a big chess story.</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal d1">
+        <img src="images/xunantunich.jpg" alt="Xunantunich Maya temple in Cayo District, Belize" loading="lazy" width="1200" height="900">
+        <figcaption class="gallery-cap"><b>Xunantunich, Cayo</b>Ancient Maya site overlooking the Mopan River.</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d2">
+        <img src="images/blue-hole.jpg" alt="Great Blue Hole off the coast of Belize" loading="lazy" width="1200" height="900">
+        <figcaption class="gallery-cap"><b>Great Blue Hole</b>UNESCO-listed atoll, a short flight from Belize City.</figcaption>
+      </figure>
+      <figure class="gallery-item reveal d3">
+        <img src="images/ambergris-caye.jpg" alt="Ambergris Caye beach on the Belize Barrier Reef" loading="lazy" width="1200" height="900">
+        <figcaption class="gallery-cap"><b>Ambergris Caye</b>Largest of Belize's cayes on the barrier reef.</figcaption>
+      </figure>
+    </div>
+
+    <div class="nation-strip reveal">
+      <div class="flags">
+        <img src="images/flag.svg" alt="Flag of Belize">
+        <img src="images/coat-of-arms.svg" alt="Coat of arms of Belize">
+      </div>
+      <div>
+        <h3 style="font-family:'Fraunces',serif; font-size:19px; margin:0 0 6px;">One country · six districts · fifty clubs</h3>
+        <p>Independent since 1981, Belize is the only English-speaking nation in Central America. Its flag's shield features two woodcutters and a mahogany tree — the 50 leaves on the wreath stand for the six districts that together feed Belize's national chess circuit.</p>
+      </div>
     </div>
   </div>
 </section>
