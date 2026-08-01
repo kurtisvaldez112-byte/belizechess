@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kurtisvaldez112-byte.github.io/belizechess/sitemap.xml
+Sitemap: https://belizechess.is-a.dev/sitemap.xml

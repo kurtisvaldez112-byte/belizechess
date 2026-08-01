@@ -9,7 +9,7 @@
 <meta name="author" content="Belize Chess Federation">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0A2B1E">
-<link rel="canonical" href="https://kurtisvaldez112-byte.github.io/belizechess/">
+<link rel="canonical" href="https://belizechess.is-a.dev/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <!-- Open Graph / Facebook -->
@@ -17,18 +17,19 @@
 <meta property="og:site_name" content="Belize Chess Federation">
 <meta property="og:title" content="Belize Chess Federation — National Chess News, Ratings &amp; Tournaments">
 <meta property="og:description" content="Live national ratings, the full tournament calendar, results, district clubs and the youth foundation — the game of chess for the benefit of all people.">
-<meta property="og:url" content="https://kurtisvaldez112-byte.github.io/belizechess/">
-<meta property="og:image" content="https://kurtisvaldez112-byte.github.io/belizechess/og-cover.svg">
+<meta property="og:url" content="https://belizechess.is-a.dev/">
+<meta property="og:image" content="https://belizechess.is-a.dev/og-cover.svg">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Belize Chess Federation — News, Ratings &amp; Tournaments">
 <meta name="twitter:description" content="Live national ratings, the full tournament calendar, results, district clubs and the youth foundation — since 1987.">
-<meta name="twitter:image" content="https://kurtisvaldez112-byte.github.io/belizechess/og-cover.svg">
+<meta name="twitter:image" content="https://belizechess.is-a.dev/og-cover.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
 
 <!-- Structured data: Organization -->
 <script type="application/ld+json">
@@ -37,7 +38,7 @@
   "@type": "SportsOrganization",
   "name": "Belize Chess Federation",
   "alternateName": "BCF",
-  "url": "https://kurtisvaldez112-byte.github.io/belizechess/",
+  "url": "https://belizechess.is-a.dev/",
   "description": "The national governing body for chess in Belize, uniting district associations, the Belize National Youth Chess Foundation and the Seniors Chess Association.",
   "sport": "Chess",
   "motto": "For the benefit of all people",
@@ -61,7 +62,7 @@
   "@type": "EventSeries",
   "name": "Belize Chess Federation tournament calendar",
   "description": "Every FIDE-rated and district-rated chess event on the national calendar.",
-  "organizer": { "@type": "Organization", "name": "Belize Chess Federation", "url": "https://kurtisvaldez112-byte.github.io/belizechess/" },
+  "organizer": { "@type": "Organization", "name": "Belize Chess Federation", "url": "https://belizechess.is-a.dev/" },
   "event": [
     { "@type": "SportsEvent", "name": "National Championship", "startDate": "2026-09-14", "endDate": "2026-09-20", "location": { "@type": "Place", "name": "George Price Building, Belmopan", "address": "Belmopan, Belize" } },
     { "@type": "SportsEvent", "name": "Toledo District Open", "startDate": "2026-10-03", "location": { "@type": "Place", "name": "Punta Gorda Town Hall", "address": "Punta Gorda, Toledo, Belize" } },
@@ -282,9 +283,10 @@
   .knight-dot{fill:var(--jade); opacity:.9;}
   #tour-dot{
     fill:var(--gold); filter:drop-shadow(0 0 6px var(--gold));
+    transform-box:fill-box; transform-origin:center;
     animation:dotpulse 1.6s var(--ease) infinite alternate;
   }
-  @keyframes dotpulse{from{r:5;} to{r:8;}}
+  @keyframes dotpulse{from{transform:scale(1);} to{transform:scale(1.6);}}
   .hero-caption{
     margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--stone-dim);
     text-align:center; letter-spacing:0.04em;
@@ -414,11 +416,12 @@
   }
   .countdown-card h3{color:var(--stone); font-size:17px; margin-bottom:6px;}
   .countdown-card .ev-date{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold-soft); text-transform:uppercase; letter-spacing:.12em;}
-  .cd-timer{display:flex; gap:12px; margin:22px 0; flex-wrap:wrap;}
-  .cd-cell{flex:1; min-width:58px; background:rgba(255,255,255,.05); border:1px solid rgba(212,175,106,.18); border-radius:6px; padding:12px 6px; text-align:center;}
-  .cd-cell b{display:block; font-family:'Fraunces',serif; font-size:26px; color:var(--gold-soft);}
-  .cd-cell span{font-family:'IBM Plex Mono',monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.12em; color:var(--stone-dim);}
-  .countdown-card .btn{margin-top:auto;}
+  .champ-list{margin:18px 0 20px; flex:1;}
+  .champ{padding:11px 0; border-top:1px dashed rgba(212,175,106,.18); display:flex; align-items:baseline; gap:12px;}
+  .champ:first-child{border-top:none;}
+  .champ b{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold); flex-shrink:0; width:44px;}
+  .champ span{font-size:13px; color:var(--stone-dim);}
+  .champ i{font-style:normal; opacity:.7;}
   .mini-list{margin-top:18px;}
   .mini-list div{display:flex; justify-content:space-between; font-size:12.5px; padding:7px 0; border-top:1px dashed rgba(212,175,106,.18); font-family:'IBM Plex Mono',monospace;}
 
@@ -485,6 +488,35 @@
   .tl-item b{font-family:'IBM Plex Mono',monospace; color:var(--jade-deep); font-size:12.5px; display:block; margin-bottom:4px;}
   .tl-item p{margin:0; font-size:13.5px; color:#5A564A;}
 
+  /* ---------- PLAY ---------- */
+  .play-grid{display:grid; grid-template-columns:minmax(300px,440px) 1fr; gap:34px; align-items:start;}
+  .play-board{border-radius:10px; overflow:hidden; box-shadow:0 30px 60px -28px rgba(0,0,0,.6); border:1px solid rgba(0,0,0,.08);}
+  .play-controls{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;}
+  .play-controls .tab-btn{border:1px solid rgba(0,0,0,.12); border-radius:4px; padding:9px 14px; font-size:11.5px;}
+  .play-controls .tab-btn.active{background:var(--bg-darker);}
+  .move-list{
+    background:var(--bg-black); color:var(--stone-dim); border-radius:10px; padding:20px; min-height:320px;
+    font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:2; max-height:420px; overflow-y:auto;
+  }
+  .move-list h3{margin:0 0 8px; color:var(--gold-soft); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase;}
+  .move-list .row{display:flex; gap:8px; align-items:baseline;}
+  .move-list .n{color:var(--gold); width:34px; flex-shrink:0;}
+  .move-list .w{color:var(--stone); min-width:52px;}
+  .move-list .b{color:var(--stone-dim); min-width:52px;}
+  .move-list .last{color:var(--jade); font-weight:600;}
+  .move-list .note{color:#7d8a80; font-size:12px; line-height:1.6; margin-top:10px;}
+  .play-status{margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--jade-deep); min-height:20px;}
+
+  /* ---------- SPONSORS ---------- */
+  .sponsor-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .sponsor{
+    background:var(--cream); border:1px solid rgba(0,0,0,.07); border-radius:8px; padding:22px;
+    text-decoration:none; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .sponsor:hover{transform:translateY(-4px); box-shadow:0 18px 36px -20px rgba(0,0,0,.35);}
+  .sponsor h3{font-size:15px; margin-bottom:4px;}
+  .sponsor span{font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8A8677;}
+
   /* ---------- JOIN ---------- */
   .join{
     background:linear-gradient(120deg, var(--jade-deep), var(--bg-black));
@@ -502,7 +534,7 @@
   /* ---------- FOOTER ---------- */
   footer{background:var(--bg-black); color:var(--stone-dim); padding:60px 0 28px;}
   .footer-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:36px; padding-bottom:40px; border-bottom:1px solid rgba(239,232,214,.1);}
-  .footer-grid h4{font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-soft); margin-bottom:16px;}
+  .footer-grid h3{font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-soft); margin-bottom:16px;}
   .footer-grid a{display:flex; align-items:center; gap:6px; color:var(--stone-dim); text-decoration:none; font-size:13.5px; margin-bottom:10px; transition:.25s;}
   .footer-grid a:hover{color:var(--gold-soft); transform:translateX(4px);}
   .footer-grid a .ext{opacity:.5; font-size:11px;}
@@ -582,9 +614,9 @@
     <nav aria-label="Primary">
       <ul class="links">
         <li><a href="#news">News</a></li>
+        <li><a href="#play">Play</a></li>
         <li><a href="#tournaments">Tournaments</a></li>
         <li><a href="#standings">Standings</a></li>
-        <li><a href="#districts">Districts</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -595,9 +627,9 @@
   </div>
   <div class="mobile-panel" id="mobilePanel">
     <a href="#news">News</a>
+    <a href="#play">Play</a>
     <a href="#tournaments">Tournaments</a>
     <a href="#standings">Standings</a>
-    <a href="#districts">Districts</a>
     <a href="#about">About</a>
     <a href="https://www.chess.com/club/belize-chess-club" target="_blank" rel="noopener">Join the Chess.com club ↗</a>
   </div>
@@ -614,8 +646,8 @@
         <a href="#news" class="btn btn-ghost">Read the latest news</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><b data-count="50">0</b><span>Active clubs</span></div>
-        <div class="hero-stat"><b data-count="1400" data-suffix="+">0</b><span>Registered players</span></div>
+        <div class="hero-stat"><b data-count="50" data-suffix="+">0</b><span>Active clubs nationwide</span></div>
+        <div class="hero-stat"><b data-count="1837">0</b><span>Top national rating</span></div>
         <div class="hero-stat"><b data-count="6">0</b><span>Districts organized</span></div>
         <div class="hero-stat"><b data-count="2022">0</b><span>Full FIDE member</span></div>
       </div>
@@ -627,7 +659,7 @@
         <span class="float-piece p3">♜</span>
         <svg viewBox="0 0 400 400" id="board-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated open knight's tour across a chess board">
           <g id="board-squares"></g>
-          <polyline id="knight-path" pathLength="100" points="25,25 125,75 225,25 325,75 375,175 325,275 375,375 275,325 175,375 75,325 25,225 125,175 225,225 325,175 375,275 275,225"/>
+          <polyline id="knight-path" points="25,25 125,75 225,25 325,75 375,175 325,275 375,375 275,325 175,375 75,325 25,225 125,175 225,225 325,175 375,275 275,225"/>
           <g id="knight-dots"></g>
           <circle id="tour-dot" r="5" cx="0" cy="0">
             <animateMotion dur="9s" repeatCount="indefinite" rotate="auto">
@@ -646,13 +678,42 @@
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track" id="tickerTrack">
-    <span><b>CAYO OPEN</b> — S. Flowers <i>7½ / 8</i> · field of 64</span>
-    <span><b>ORANGE WALK RAPID</b> — H. Chock <i>6 / 7</i> · field of 38</span>
-    <span><b>DISTRICT CUP</b> — E. Martinez <i>5½ / 6</i> · Belize City</span>
-    <span><b>NATIONAL OLYMPIAD</b> — Cayo District Team <i>21 / 30</i></span>
-    <span><b>NATIONAL CHAMPIONSHIP</b> — Belmopan · <i>14–20 Sep 2026</i></span>
+    <span><b>NATIONAL CHAMPION 2026</b> — NM Alfred A. Awe <i>Stann Creek</i></span>
+    <span><b>JUNIOR CHAMPION 2026</b> — Isaiah Garay <i>Cayo</i></span>
+    <span><b>BLITZ CHAMPION 2026</b> — Charlton Roches <i>Belize</i></span>
+    <span><b>RATINGS UPDATED</b> — <i>22 February 2026</i></span>
+    <span><b>CHAMPIONSHIP CYCLE 2026–27</b> — <i>qualifiers open in every district</i></span>
   </div>
 </div>
+
+<section class="band-alt" id="play">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Interactive board</div>
+        <h2>Play a game right here</h2>
+        <p>Move the pieces against a simple club-level opponent, or press the button and watch Paul Morphy's famous Opera Game play itself move by move.</p>
+      </div>
+    </div>
+    <div class="play-grid">
+      <div class="reveal-left">
+        <div id="myBoard" class="play-board"></div>
+        <div class="play-controls">
+          <button class="tab-btn active" id="btnNew">New game</button>
+          <button class="tab-btn" id="btnFlip">Flip board</button>
+          <button class="tab-btn" id="btnDemo">▶ Opera Game</button>
+        </div>
+        <div class="play-status" id="playStatus">Drag a piece to make your move — white plays first.</div>
+      </div>
+      <aside class="reveal-right">
+        <div class="move-list" id="moveList">
+          <h3>Moves</h3>
+          <p class="note">The Opera Game — Paul Morphy vs. Duke of Brunswick &amp; Count Isouard, Paris 1858. One of the most famous attacking games ever played.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <section id="news">
   <div class="wrap">
@@ -660,7 +721,7 @@
       <div>
         <div class="eyebrow">Latest dispatches</div>
         <h2>Federation news</h2>
-        <p>Reports from district associations, the youth foundation, and the national office — updated as tournaments wrap and rosters are set.</p>
+        <p>Official reports from the Belize Chess Federation — the national championship cycle, circuit events, and every tournament as it wraps.</p>
       </div>
       <a href="https://www.belizechess.com/" class="section-num" target="_blank" rel="noopener">Visit belizechess.com ↗</a>
     </div>
@@ -668,73 +729,73 @@
 
       <article class="news-card reveal d1">
         <div class="news-tag">
-          <span class="district-chip chip-belize">Belmopan</span>
-          <span class="news-date">14 SEP 2026</span>
+          <span class="district-chip chip-belize">National</span>
+          <span class="news-date">23 FEB 2026</span>
         </div>
         <div class="news-body">
-          <h3>National Championship returns to Belmopan this September</h3>
-          <p>The federation confirms the George Price Building as host for the 2026 National Championship, with qualifiers already seeded from all six districts.</p>
-          <a href="#tournaments" class="news-link">View the schedule <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h3>National Chess Championship Cycle 2026–2027 announced</h3>
+          <p>The BCF confirms the format, qualifiers, and district schedule for the new national championship cycle, running through 2027.</p>
+          <a href="https://www.belizechess.com/post/national-chess-championship-cycle-2026-2027" class="news-link" target="_blank" rel="noopener">Read on belizechess.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
       <article class="news-card reveal d2">
         <div class="news-tag">
-          <span class="district-chip chip-cayo">Cayo</span>
-          <span class="news-date">02 SEP 2026</span>
+          <span class="district-chip chip-stanncreek">Stann Creek</span>
+          <span class="news-date">23 FEB 2026</span>
         </div>
         <div class="news-body">
-          <h3>Cayo Open draws its largest field in San Ignacio</h3>
-          <p>Entries from San Ignacio, Santa Elena, and Benque Viejo pushed the district open past capacity, with a waitlist opened for the first time.</p>
-          <a href="https://www.belizechess.com/" class="news-link" target="_blank" rel="noopener">Read on belizechess.com <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h3>NM Alfred A. Awe crowned National Chess Champion 2026</h3>
+          <p>Stann Creek's top-rated player takes the national title, with Isaiah Garay (Cayo) winning the Junior Championship and Charlton Roches (Belize) the Blitz title.</p>
+          <a href="https://www.belizechess.com/belizenationalchampion" class="news-link" target="_blank" rel="noopener">Champions roll of honour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
       <article class="news-card reveal d3">
         <div class="news-tag">
           <span class="district-chip chip-belize">Belmopan</span>
-          <span class="news-date">21 AUG 2026</span>
+          <span class="news-date">07 FEB 2026</span>
         </div>
         <div class="news-body">
-          <h3>Junior clinic opens at Caves Branch ahead of CODICADER selection</h3>
-          <p>The Belize National Youth Chess Foundation's headquarters hosts trials for the regional CODICADER squad, continuing a program running since 2007.</p>
+          <h3>Belmopan Library Swiss 2026 wraps in the capital</h3>
+          <p>The capital's flagship open brings players from across the districts together for a full Swiss at the library — results now on the official site.</p>
           <a href="https://www.belizechess.com/post/belmopan-library-swiss-2026" class="news-link" target="_blank" rel="noopener">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
       <article class="news-card reveal d4">
         <div class="news-tag">
-          <span class="district-chip chip-toledo">Toledo</span>
-          <span class="news-date">09 AUG 2026</span>
+          <span class="district-chip chip-belize">Belize City</span>
+          <span class="news-date">FEB 2026</span>
         </div>
         <div class="news-body">
-          <h3>Punta Gorda club adds a second weekly session</h3>
-          <p>Growing turnout among primary-school players has the Toledo district association adding Thursday evenings to its regular Saturday sessions.</p>
-          <a href="#districts" class="news-link">See districts <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h3>National ratings updated — Awe leads the list at 1837</h3>
+          <p>The February 2026 national rating list is out, with 20 players published and national master titles held across four districts.</p>
+          <a href="https://www.belizechess.com/bcf-rating-list" class="news-link" target="_blank" rel="noopener">Full rating list <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
       <article class="news-card reveal d5">
         <div class="news-tag">
-          <span class="district-chip chip-orangewalk">Orange Walk</span>
-          <span class="news-date">27 JUL 2026</span>
+          <span class="district-chip chip-orangewalk">National</span>
+          <span class="news-date">FEB 2026</span>
         </div>
         <div class="news-body">
-          <h3>Orange Walk hosts its first rated rapid event</h3>
-          <p>A new rapid format brings FIDE-rated play north, giving border-town players a closer venue ahead of the national calendar.</p>
-          <a href="#tournaments" class="news-link">View the schedule <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h3>John Paul the Great 8th Annual Tournament honours its namesake</h3>
+          <p>The eighth edition of the popular tournament ran in the early months of 2026 — photos, results and the full report are up on the federation site.</p>
+          <a href="https://www.belizechess.com/post/john-paul-the-great-8th-annual-tournament" class="news-link" target="_blank" rel="noopener">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
       <article class="news-card reveal d6">
         <div class="news-tag">
-          <span class="district-chip chip-stanncreek">Stann Creek</span>
-          <span class="news-date">12 JUL 2026</span>
+          <span class="district-chip chip-cayo">National</span>
+          <span class="news-date">2026</span>
         </div>
         <div class="news-body">
-          <h3>Dangriga club-house restocks boards ahead of school term</h3>
-          <p>New sets and clocks donated ahead of the fall term will support two new school clubs joining the district association this year.</p>
-          <a href="#districts" class="news-link">See districts <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h3>Belize Circuit 2026 points players toward the national title</h3>
+          <p>The annual circuit series aggregates results across the calendar — see the standings, format, and how to enter on the official championship pages.</p>
+          <a href="https://www.belizechess.com/belizecircuit2026" class="news-link" target="_blank" rel="noopener">Circuit details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
 
@@ -747,59 +808,59 @@
     <div class="section-head reveal">
       <div>
         <div class="eyebrow">Calendar</div>
-        <h2>Tournaments</h2>
-        <p>Every FIDE-rated and district-rated event on the national calendar, plus results as they're confirmed by arbiters.</p>
+        <h2>National calendar &amp; results</h2>
+        <p>The federation's championship cycle, circuit, and recent events — every result and format confirmed on the official BCF site.</p>
       </div>
-      <span class="section-num">Next event in <span id="countdownLabel" style="color:var(--red)">…</span></span>
+      <a href="https://www.belizechess.com/upcoming-tournaments" class="section-num" target="_blank" rel="noopener">Upcoming events ↗</a>
     </div>
 
     <div class="tabs reveal">
-      <button class="tab-btn active" id="tabUpcoming">Upcoming</button>
-      <button class="tab-btn" id="tabResults">Results</button>
+      <button class="tab-btn active" id="tabUpcoming">On the calendar</button>
+      <button class="tab-btn" id="tabResults">Recent results</button>
     </div>
 
     <div class="tourn-grid reveal">
       <div class="table-wrap">
         <table id="upcoming-table" class="table-pane">
           <thead>
-            <tr><th>Date</th><th>Event</th><th>District</th><th>Format</th><th>Venue</th><th>Entries</th></tr>
+            <tr><th>Event</th><th>Format</th><th>Where</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td class="mono">14–20 Sep 2026</td><td>National Championship</td><td>Belize</td><td class="mono">Swiss · 9 rd</td><td>George Price Building, Belmopan</td><td><span class="status-open">Open</span></td></tr>
-            <tr><td class="mono">03 Oct 2026</td><td>Toledo District Open</td><td>Toledo</td><td class="mono">Swiss · 6 rd</td><td>Punta Gorda Town Hall</td><td><span class="status-open">Open</span></td></tr>
-            <tr><td class="mono">17–18 Oct 2026</td><td>Corozal Rapid Classic</td><td>Corozal</td><td class="mono">Rapid · 7 rd</td><td>Corozal Community Center</td><td><span class="status-open">Open</span></td></tr>
-            <tr><td class="mono">08 Nov 2026</td><td>Stann Creek Invitational</td><td>Stann Creek</td><td class="mono">Round robin · 8</td><td>Dangriga Civic Center</td><td><span class="status-closed">Invite only</span></td></tr>
-            <tr><td class="mono">Every May</td><td>Belize National Chess Olympiad</td><td>Belize</td><td class="mono">Team · Swiss</td><td>Belmopan (BNYCF host)</td><td><span class="status-open">Annual</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/championship-2026-2027" target="_blank" rel="noopener">National Championship 2026–27</a></td><td class="mono">Cycle · district qualifiers</td><td>Nationwide, Belmopan final</td><td><span class="status-open">Open</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/belizecircuit2026" target="_blank" rel="noopener">Belize Circuit 2026</a></td><td class="mono">Series · rated events</td><td>All six districts</td><td><span class="status-open">Open</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/upcoming-tournaments" target="_blank" rel="noopener">Next federation events</a></td><td class="mono">As published</td><td>Check the official calendar</td><td><span class="status-open">Live list</span></td></tr>
+            <tr><td><a href="https://www.belizechess.com/active-clubs" target="_blank" rel="noopener">District club programme</a></td><td class="mono">Club nights &amp; leagues</td><td>50+ clubs nationwide</td><td><span class="status-open">Active</span></td></tr>
           </tbody>
         </table>
 
         <table id="results-table" class="table-pane" style="display:none">
           <thead>
-            <tr><th>Date</th><th>Event</th><th>District</th><th class="mono">Winner</th><th class="mono">Score</th><th class="mono">Field</th></tr>
+            <tr><th>Event</th><th class="mono">Winner</th><th>District</th><th class="mono">Year</th></tr>
           </thead>
           <tbody>
-            <tr><td class="mono">02 Sep 2026</td><td>Cayo Open</td><td>Cayo</td><td class="winner">S. Flowers</td><td class="mono">7½ / 8</td><td class="mono">64</td></tr>
-            <tr><td class="mono">27 Jul 2026</td><td>Orange Walk Rated Rapid</td><td>Orange Walk</td><td class="winner">H. Chock</td><td class="mono">6 / 7</td><td class="mono">38</td></tr>
-            <tr><td class="mono">14 Jun 2026</td><td>Belize City District Cup</td><td>Belize</td><td class="winner">E. Martinez</td><td class="mono">5½ / 6</td><td class="mono">42</td></tr>
-            <tr><td class="mono">18 May 2026</td><td>National Chess Olympiad</td><td>Belize</td><td class="winner">Cayo District Team</td><td class="mono">21 / 30</td><td class="mono">6 teams</td></tr>
+            <tr><td>National Championship</td><td class="winner">NM Alfred A. Awe</td><td>Stann Creek</td><td class="mono">2026</td></tr>
+            <tr><td>Junior Championship</td><td class="winner">Isaiah Garay</td><td>Cayo</td><td class="mono">2026</td></tr>
+            <tr><td>Blitz Championship</td><td class="winner">Charlton Roches</td><td>Belize</td><td class="mono">2026</td></tr>
+            <tr><td>National Championship</td><td class="winner">Mikael Cervantes</td><td>Orange Walk</td><td class="mono">2023</td></tr>
+            <tr><td>Belmopan Library Swiss</td><td class="mono">See official results</td><td>Belize</td><td class="mono">2026</td></tr>
           </tbody>
         </table>
       </div>
 
       <aside class="countdown-card">
-        <h3 id="cdTitle">National Championship</h3>
-        <span class="ev-date" id="cdDate">14 Sep 2026 · Belmopan</span>
-        <div class="cd-timer">
-          <div class="cd-cell"><b id="cdD">–</b><span>days</span></div>
-          <div class="cd-cell"><b id="cdH">–</b><span>hrs</span></div>
-          <div class="cd-cell"><b id="cdM">–</b><span>min</span></div>
-          <div class="cd-cell"><b id="cdS">–</b><span>sec</span></div>
+        <h3>National champions</h3>
+        <span class="ev-date">Roll of honour · BCF</span>
+        <div class="champ-list">
+          <div class="champ"><b>2026</b><span>NM Alfred A. Awe <i>· Stann Creek</i></span></div>
+          <div class="champ"><b>Junior</b><span>Isaiah Garay <i>· Cayo</i></span></div>
+          <div class="champ"><b>Blitz</b><span>Charlton Roches <i>· Belize</i></span></div>
+          <div class="champ"><b>2023</b><span>Mikael Cervantes <i>· Orange Walk</i></span></div>
         </div>
-        <a href="https://www.belizechess.com/" class="btn btn-primary" target="_blank" rel="noopener">Register via the federation ↗</a>
+        <a href="https://www.belizechess.com/belizenationalchampion" class="btn btn-primary" target="_blank" rel="noopener">Champions roll of honour ↗</a>
         <div class="mini-list">
-          <div><span>Rating change</span><span>28 Jul 2026</span></div>
-          <div><span>Players on list</span><span>1,400+</span></div>
-          <div><span>FIDE-rated</span><span>112</span></div>
+          <div><span>Ratings updated</span><span>22 Feb 2026</span></div>
+          <div><span>Players published</span><span>20</span></div>
+          <div><span>Top rating</span><span>1837</span></div>
         </div>
       </aside>
     </div>
@@ -821,24 +882,27 @@
         <table>
           <thead><tr><th class="mono">Rank</th><th>Player</th><th>District</th><th class="mono">Rating</th><th></th></tr></thead>
           <tbody>
-            <tr><td><span class="rank-cell rank-1">1</span></td><td>Steve Flowers</td><td>Belize</td><td class="mono">2104</td><td style="width:120px"><div class="rating-bar" data-w="100"></div></td></tr>
-            <tr><td><span class="rank-cell rank-2">2</span></td><td>Hilberto Chock</td><td>Toledo</td><td class="mono">2041</td><td style="width:120px"><div class="rating-bar" data-w="92"></div></td></tr>
-            <tr><td><span class="rank-cell rank-3">3</span></td><td>Vincent Hulse</td><td>Cayo</td><td class="mono">1998</td><td style="width:120px"><div class="rating-bar" data-w="86"></div></td></tr>
-            <tr><td><span class="rank-cell">4</span></td><td>Edgar Martinez</td><td>Cayo</td><td class="mono">1976</td><td style="width:120px"><div class="rating-bar" data-w="82"></div></td></tr>
-            <tr><td><span class="rank-cell">5</span></td><td>Ivan Pixabaj</td><td>Belize</td><td class="mono">1932</td><td style="width:120px"><div class="rating-bar" data-w="77"></div></td></tr>
-            <tr><td><span class="rank-cell">6</span></td><td>Jerome Sho</td><td>Orange Walk</td><td class="mono">1889</td><td style="width:120px"><div class="rating-bar" data-w="70"></div></td></tr>
-            <tr><td><span class="rank-cell">7</span></td><td>Leander Campos</td><td>Corozal</td><td class="mono">1854</td><td style="width:120px"><div class="rating-bar" data-w="65"></div></td></tr>
-            <tr><td><span class="rank-cell">8</span></td><td>Jeremy Chiang</td><td>Stann Creek</td><td class="mono">1811</td><td style="width:120px"><div class="rating-bar" data-w="58"></div></td></tr>
+            <tr><td><span class="rank-cell rank-1">1</span></td><td>NM Alfred A. Awe</td><td>Stann Creek</td><td class="mono">1837</td><td style="width:120px"><div class="rating-bar" data-w="100"></div></td></tr>
+            <tr><td><span class="rank-cell rank-2">2</span></td><td>NM Greg Vitko</td><td>Cayo</td><td class="mono">1819</td><td style="width:120px"><div class="rating-bar" data-w="96"></div></td></tr>
+            <tr><td><span class="rank-cell rank-3">3</span></td><td>NM Michael Campos</td><td>Orange Walk</td><td class="mono">1749</td><td style="width:120px"><div class="rating-bar" data-w="86"></div></td></tr>
+            <tr><td><span class="rank-cell">4</span></td><td>Kurtis Valdez</td><td>Cayo</td><td class="mono">1667</td><td style="width:120px"><div class="rating-bar" data-w="74"></div></td></tr>
+            <tr><td><span class="rank-cell">5</span></td><td>Kenneth Perez</td><td>Orange Walk</td><td class="mono">1646</td><td style="width:120px"><div class="rating-bar" data-w="71"></div></td></tr>
+            <tr><td><span class="rank-cell">6</span></td><td>Luis Mendez Jr.</td><td>Cayo</td><td class="mono">1621</td><td style="width:120px"><div class="rating-bar" data-w="67"></div></td></tr>
+            <tr><td><span class="rank-cell">7</span></td><td>NM Christobal Campos</td><td>Corozal</td><td class="mono">1602</td><td style="width:120px"><div class="rating-bar" data-w="64"></div></td></tr>
+            <tr><td><span class="rank-cell">8</span></td><td>Charlton Roches</td><td>Belize</td><td class="mono">1590</td><td style="width:120px"><div class="rating-bar" data-w="62"></div></td></tr>
+            <tr><td><span class="rank-cell">9</span></td><td>Kelvin Baizar</td><td>Cayo</td><td class="mono">1588</td><td style="width:120px"><div class="rating-bar" data-w="61"></div></td></tr>
+            <tr><td><span class="rank-cell">10</span></td><td>Dinsdale Caye</td><td>Toledo</td><td class="mono">1586</td><td style="width:120px"><div class="rating-bar" data-w="60"></div></td></tr>
           </tbody>
         </table>
       </div>
       <aside class="side-card reveal d2">
-        <h3>Ratings, explained</h3>
-        <p>District results feed a national list; FIDE-rated events also update each player's international rating.</p>
-        <div class="side-stat"><span>Last recalculation</span><b>28 Jul 2026</b></div>
-        <div class="side-stat"><span>Players on list</span><b>1,400+</b></div>
-        <div class="side-stat"><span>FIDE-rated players</span><b>112</b></div>
-        <div class="side-stat"><span>Highest-rated district</span><b>Belize</b></div>
+        <h3>National ratings list</h3>
+        <p>The February 2026 national rating list as published by the Belize Chess Federation. District results feed the list; FIDE-rated events also update each player's international rating.</p>
+        <div class="side-stat"><span>Last update</span><b>22 Feb 2026</b></div>
+        <div class="side-stat"><span>Players published</span><b>20</b></div>
+        <div class="side-stat"><span>Highest rating</span><b>NM Awe · 1837</b></div>
+        <div class="side-stat"><span>National masters</span><b>4 active</b></div>
+        <a href="https://www.belizechess.com/bcf-rating-list" class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:8px">Full list on belizechess.com ↗</a>
         <div class="soc-icons">
           <a href="https://www.chess.com/club/belize-chess-club" target="_blank" rel="noopener" aria-label="Chess.com club">♟</a>
           <a href="https://www.facebook.com/profile.php?id=100091539985463" target="_blank" rel="noopener" aria-label="Facebook">f</a>
@@ -920,6 +984,26 @@
   </div>
 </section>
 
+<section id="sponsors">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Thank you to our sponsors</div>
+        <h2>Supporters of Belize chess</h2>
+        <p>Partners and sponsors who keep clubs, tournaments, and the youth programme running across the country.</p>
+      </div>
+    </div>
+    <div class="sponsor-grid">
+      <a class="sponsor reveal d1" href="https://fideamerica.net/site/en" target="_blank" rel="noopener"><h3>CCA / FIDE America</h3><span>Continental confederation</span></a>
+      <a class="sponsor reveal d2" href="https://www.cavesbranch.com" target="_blank" rel="noopener"><h3>Caves Branch Jungle Lodge</h3><span>BNYCF headquarters host</span></a>
+      <a class="sponsor reveal d3" href="https://www.thegiftofchess.org" target="_blank" rel="noopener"><h3>The Gift of Chess</h3><span>Boards &amp; sets for juniors</span></a>
+      <a class="sponsor reveal d4" href="https://www.sunrisescubabz.com" target="_blank" rel="noopener"><h3>Sunrise Scuba</h3><span>Community partner</span></a>
+      <a class="sponsor reveal d5" href="https://www.facebook.com/ccadiversity" target="_blank" rel="noopener"><h3>CCA Diversity Commission</h3><span>Inclusion programme</span></a>
+      <a class="sponsor reveal d6" href="https://www.facebook.com/discovercayo" target="_blank" rel="noopener"><h3>Cayo Welcome Center</h3><span>Tourism &amp; chess outreach</span></a>
+    </div>
+  </div>
+</section>
+
 <section id="join">
   <div class="wrap">
     <div class="join reveal">
@@ -944,29 +1028,29 @@
         <p style="font-size:13px; color:#8b9188; margin-top:14px; max-width:34ch;">The national governing body for chess in Belize, uniting district associations, the youth foundation, and the seniors association.</p>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h3>Explore</h3>
         <a href="#news">News</a>
         <a href="#tournaments">Tournaments</a>
         <a href="#standings">Standings</a>
         <a href="#districts">Districts</a>
       </div>
       <div>
-        <h4>Official links</h4>
+        <h3>Official links</h3>
         <a href="https://www.belizechess.com/" target="_blank" rel="noopener">belizechess.com <span class="ext">↗</span></a>
         <a href="https://www.fide.com/" target="_blank" rel="noopener">FIDE <span class="ext">↗</span></a>
         <a href="https://fideamerica.net/site/en" target="_blank" rel="noopener">FIDE America <span class="ext">↗</span></a>
         <a href="https://www.chess.com/club/belize-chess-club" target="_blank" rel="noopener">Chess.com club <span class="ext">↗</span></a>
       </div>
       <div>
-        <h4>Community</h4>
+        <h3>Community</h3>
         <a href="https://www.facebook.com/profile.php?id=100091539985463" target="_blank" rel="noopener">Facebook <span class="ext">↗</span></a>
         <a href="https://chat.whatsapp.com/BrjSqx8f4BZF2emUMmzMpo" target="_blank" rel="noopener">WhatsApp group <span class="ext">↗</span></a>
-        <a href="mailto:info@belizechess.com">info@belizechess.com</a>
-        <a href="https://www.belizechess.com/post/national-chess-championship-cycle-2026-2027" target="_blank" rel="noopener">2026–27 Championship cycle <span class="ext">↗</span></a>
+        <a href="https://www.belizechess.com/contact-us" target="_blank" rel="noopener">Contact the federation <span class="ext">↗</span></a>
+        <a href="https://www.belizechess.com/active-clubs" target="_blank" rel="noopener">Find an active club <span class="ext">↗</span></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Belize Chess Federation. Sample content for illustration — official news at <a href="https://www.belizechess.com/" style="color:var(--gold)">belizechess.com</a>.</span>
+      <span>© 2026 Belize Chess Federation. News, ratings &amp; results from the official site at <a href="https://www.belizechess.com/" style="color:var(--gold)">belizechess.com</a>.</span>
       <span class="mono">FIDE member since 2022</span>
     </div>
   </div>
@@ -976,6 +1060,8 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
 </button>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script>
   // ---------- helpers ----------
   const $ = (s) => document.querySelector(s);
@@ -1076,20 +1162,101 @@
   tabUpcoming.addEventListener('click', () => setTab(tabUpcoming, tabResults, upcomingTable, resultsTable));
   tabResults.addEventListener('click', () => setTab(tabResults, tabUpcoming, resultsTable, upcomingTable));
 
-  // ---------- countdown ----------
-  const nextEvent = new Date('2026-09-14T09:00:00-06:00').getTime();
-  function tickClock() {
-    const diff = nextEvent - Date.now();
-    const d = Math.max(0, Math.floor(diff / 86400000));
-    const h = Math.max(0, Math.floor(diff / 3600000) % 24);
-    const m = Math.max(0, Math.floor(diff / 60000) % 60);
-    const s = Math.max(0, Math.floor(diff / 1000) % 60);
-    $('#cdD').textContent = d; $('#cdH').textContent = h; $('#cdM').textContent = m; $('#cdS').textContent = s;
-    const daysTxt = d === 1 ? '1 day' : d + ' days';
-    $('#countdownLabel').textContent = daysTxt;
+  // ---------- interactive chess board ----------
+  if (window.Chessboard && window.Chess) {
+    const moveListEl = $('#moveList');
+    const statusEl = $('#playStatus');
+    const game = new Chess();
+    let botOn = true;
+    let demoOn = false;
+    let demoTimer = null;
+
+    // Morphy's Opera Game, Paris 1858
+    const OPERA = ['e4','e5','Nf3','d6','d4','Bg4','dxe5','Bxf3','Qxf3','dxe5','Bc4','Nf6','Qb3','Qe7','Nc3','c6','Bg5','b5','Nxb5','cxb5','Bxb5+','Nbd7','O-O-O','Rd8','Rxd7','Rxd7','Rd1','Qe6','Bxd7+','Nxd7','Qb8+','Nxb8','Rd8#'];
+
+    function renderMoves() {
+      const hist = game.history({ verbose: true });
+      let html = '<h3>Moves</h3>';
+      for (let i = 0; i < hist.length; i += 2) {
+        const n = (i / 2) + 1;
+        const w = hist[i], b = hist[i + 1];
+        html += '<div class="row"><span class="n">' + n + '.</span>'
+          + '<span class="w' + (i === hist.length - 1 ? ' last' : '') + '">' + (w ? w.san : '') + '</span>'
+          + '<span class="b' + (i + 1 === hist.length - 1 ? ' last' : '') + '">' + (b ? b.san : '') + '</span></div>';
+      }
+      moveListEl.innerHTML = html;
+      moveListEl.scrollTop = moveListEl.scrollHeight;
+    }
+
+    function updateStatus() {
+      if (game.in_checkmate()) statusEl.textContent = 'Checkmate — ' + (game.turn() === 'w' ? 'black' : 'white') + ' wins!';
+      else if (game.in_stalemate()) statusEl.textContent = 'Stalemate — draw.';
+      else if (game.in_check()) statusEl.textContent = 'Check — ' + (game.turn() === 'w' ? 'White' : 'Black') + ' to move.';
+      else statusEl.textContent = (game.turn() === 'w' ? 'White' : 'Black') + ' to move — drag a piece.';
+    }
+
+    const board = Chessboard('myBoard', {
+      draggable: true,
+      position: 'start',
+      pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png',
+      onDragStart(source, piece) {
+        if (game.game_over() || demoOn) return false;
+        if ((game.turn() === 'w' && piece.search(/^b/) !== -1) || (game.turn() === 'b' && piece.search(/^w/) !== -1)) return false;
+      },
+      onDrop(source, target) {
+        const move = game.move({ from: source, to: target, promotion: 'q' });
+        if (move === null) return 'snapback';
+        renderMoves();
+        updateStatus();
+        if (botOn && !game.game_over()) setTimeout(botMove, 350);
+      },
+      onSnapEnd() { board.position(game.fen()); }
+    });
+
+    function botMove() {
+      if (game.game_over()) { updateStatus(); return; }
+      const moves = game.moves();
+      const m = moves[Math.floor(Math.random() * moves.length)];
+      game.move(m);
+      board.position(game.fen());
+      renderMoves();
+      updateStatus();
+    }
+
+    function newGame() {
+      if (demoTimer) { clearInterval(demoTimer); demoTimer = null; }
+      demoOn = false; botOn = true;
+      game.reset();
+      board.position('start');
+      renderMoves();
+      updateStatus();
+    }
+
+    $('#btnNew').addEventListener('click', newGame);
+    $('#btnFlip').addEventListener('click', () => board.flip());
+    $('#btnDemo').addEventListener('click', () => {
+      if (demoTimer) clearInterval(demoTimer);
+      demoOn = true; botOn = false;
+      game.reset(); board.position('start');
+      renderMoves();
+      statusEl.textContent = 'Watching the Opera Game — Morphy to move.';
+      let idx = 0;
+      demoTimer = setInterval(() => {
+        if (idx >= OPERA.length) {
+          clearInterval(demoTimer); demoTimer = null; demoOn = false;
+          statusEl.textContent = 'Opera Game complete — checkmate in 17 moves, 1-0 Morphy.';
+          return;
+        }
+        try { game.move(OPERA[idx++]); } catch (e) { idx++; }
+        board.position(game.fen());
+        renderMoves();
+      }, 850);
+    });
+
+    renderMoves();
+  } else {
+    $('#playStatus').textContent = 'The interactive board could not load — please check your internet connection.';
   }
-  tickClock();
-  if (!reduceMotion) setInterval(tickClock, 1000);
 
   // ---------- ticker duplicate for seamless loop ----------
   const track = $('#tickerTrack');
